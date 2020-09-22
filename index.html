@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("form").submit(function(e){
+	e.preventDefault();
+    $.ajax({url: ("https://www.googleapis.com/customsearch/v1?key=AIzaSyDIE1cn3zwZDbiA__YOyIRUmRXKwfLGw2s&cx=2a35187cb70a95ca8&q="+ search.value), dataType:"json", success: function(result){
+      $("#h").html(result.searchInformation.formattedTotalResults+" resultados");
+    }});
+  });
+});
+</script>
+</head>
+<body>
+
+<h2 id="h">Busque por um termo</h2>
+<form>
+<input placeholder="Palavra-chave" id="search"></input>
+<button>Buscar</button>
+</form>
+</body>
+</html>
